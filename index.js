@@ -130,9 +130,9 @@ app.delete('/delete_renter/:id',(req,res)=>{
 
 app.post('/insert_renter',(req,res)=>{
     let re = req.body;
-    var sql = "SET @id = ?;SET @vehicle_rc = ?;SET @user_licence = ?;SET @rc_img = ?;SET @lic_img = ?;\
-    CALL RenterAddOrEdit(@id,@vehicle_rc,@user_licence,@rc_img,@lic_img);";
-    mysqlConnection.query(sql,[re.id, re.vehicle_rc, re.user_licence, re.rc_img, re.lic_img],(err, rows, fields)=>{
+    var sql = "SET @id = ?;SET @user_id = ?;SET @vehicle_rc = ?;SET @user_licence = ?;SET @rc_img = ?;SET @lic_img = ?;\
+    CALL RenterAddOrEdit(@id,@user_id,@vehicle_rc,@user_licence,@rc_img,@lic_img);";
+    mysqlConnection.query(sql,[re.id, re.user_id, re.vehicle_rc, re.user_licence, re.rc_img, re.lic_img],(err, rows, fields)=>{
         if(!err)
         rows.forEach(element => {
 
@@ -149,9 +149,9 @@ app.post('/insert_renter',(req,res)=>{
 
 app.put('/update_renter',(req,res)=>{
     let re = req.body;
-    var sql = "SET @id = ?;SET @vehicle_rc = ?;SET @user_licence = ?;SET @rc_img = ?;SET @lic_img = ?;\
-    CALL RenterAddOrEdit(@id,@vehicle_rc,@user_licence,@rc_img,@lic_img);";
-    mysqlConnection.query(sql,[re.id, re.vehicle_rc, re.user_licence, re.rc_img, re.lic_img],(err, rows, fields)=>{
+    var sql = "SET @id = ?;SET @user_id = ?;SET @vehicle_rc = ?;SET @user_licence = ?;SET @rc_img = ?;SET @lic_img = ?;\
+    CALL RenterAddOrEdit(@id,@user_id,@vehicle_rc,@user_licence,@rc_img,@lic_img);";
+    mysqlConnection.query(sql,[re.id, re.user_id, re.vehicle_rc, re.user_licence, re.rc_img, re.lic_img],(err, rows, fields)=>{
         if(!err)
         res.send('Updated Succesfully');
         else
